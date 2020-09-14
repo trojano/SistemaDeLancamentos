@@ -5,6 +5,8 @@
  */
 package View;
 
+import distribuicaofundo.Armazenamento;
+import distribuicaofundo.Municipio;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -259,52 +261,93 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
             return;
         }
         
+        
+        
         String municipio = jTextField2.getText();
+        
+        for(Municipio m: Armazenamento.getMunicipios()){
+            if("ABC".contentEquals(municipio)){
+                System.out.println("aqui");
+            }
+            System.out.println(municipio);
+        }
+        
         if(municipio.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O CNPJ não pode ficar em branco");
+            JOptionPane.showMessageDialog(null, "O Municopio não pode ficar em branco");
             return;
         }
         
-        String nroeleitores = jTextField3.getText();
-        if(nroeleitores.isEmpty()){
+        String cnpj = jTextField3.getText();
+        if(cnpj.isEmpty()){
             JOptionPane.showMessageDialog(null, "O número de eleitores não pode ficar em branco");
             return;
         }
         
-        String respfinanceiro = jTextField4.getText();
-        if(respfinanceiro.isEmpty()){
+        String cpf = jTextField4.getText();
+        if(cpf.isEmpty()){
             JOptionPane.showMessageDialog(null, "O responsável financeiro não pode ficar em branco");
             return;
         }
         
-        String email = jTextField5.getText();
-        if(email.isEmpty()){
+        String telefone = jTextField5.getText();
+        if(telefone.isEmpty()){
             JOptionPane.showMessageDialog(null, "O e-mail não pode ficar em branco");
             return;
         }
         
         
-        String telefone = jTextField6.getText();
-        if(telefone.isEmpty()){
+        String email = jTextField6.getText();
+        if(email.isEmpty()){
             JOptionPane.showMessageDialog(null, "O telefone não pode ficar em branco");
             return;
         }
         
         
-         String banco = jTextField8.getText();
-        if(banco.isEmpty()){
+         String whatsapp = jTextField7.getText();
+        if(whatsapp.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+         
+        String cor = jComboBox1.getSelectedItem().toString();
+        if(cor.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+         
+        String dtnascimento = jFormattedTextField2.getText();
+        if(dtnascimento.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+         
+        String genero = jComboBox2.getSelectedItem().toString();
+        if(genero.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+         
+        String orientacaosexual = jComboBox3.getSelectedItem().toString();
+        if(orientacaosexual.isEmpty()){
             JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
             return;
         }
          
         
+        String endereco = jTextField8.getText();
+        if(endereco.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+         
         
-       
-        
-        
-        
-      
-        
+        String candidatura = jComboBox4.getSelectedItem().toString();
+        if(candidatura.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+         
+   
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
