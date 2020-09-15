@@ -37,7 +37,15 @@ public class Armazenamento {
        
        return listaMunicipios.add(m);
             
-   }   
+   } 
+   
+   public static boolean armazenaCandidato(Candidato c){
+       
+       return listaCandidatos.add(c);
+            
+   } 
+   
+   
    
    
    public static ArrayList<Lancamento> getLancamentos(){
