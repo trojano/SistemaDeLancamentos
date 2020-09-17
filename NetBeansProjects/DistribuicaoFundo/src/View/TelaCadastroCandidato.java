@@ -5,9 +5,9 @@
  */
 package View;
 
-import distribuicaofundo.Armazenamento;
-import distribuicaofundo.Candidato;
-import distribuicaofundo.Municipio;
+import distribuicaofundo.model.Armazenamento;
+import distribuicaofundo.model.Candidato;
+import distribuicaofundo.model.Municipio;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -80,7 +80,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1084, 614));
@@ -132,7 +132,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
 
         jLabel16.setText("Conta");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Banrisul", "Itaú Unibanco", "Banco do Brasil", "Banco Bradesco", "Caixa Econômica Federal", "Banco Santander", "Sicredi", "Branco Safra", "BTG Pactual", "Sicoob", "Banco Votorantim", "Citibank", "Banco Santander" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -305,12 +305,20 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         
         String municipio = jTextField2.getText().trim();
         
-   /*     for(Municipio m: Armazenamento.getMunicipios()){
-            if("ABC".contentEquals(municipio)){
-                System.out.println("aqui");
-            }
-            System.out.println(municipio);
-        }*/
+        boolean existe = false;
+        for(Municipio m: Armazenamento.getMunicipios()){
+            if(m.getNome().equalsIgnoreCase(municipio)){
+                existe = true; break;
+            }        
+        }
+        
+        if(existe == false){
+             JOptionPane.showMessageDialog(null, "Esse município ainda não foi cadastrado");
+            return;
+        }
+   
+   
+   
         
         if(municipio.isEmpty()){
             JOptionPane.showMessageDialog(null, "O município não pode ficar em branco");
@@ -367,7 +375,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         
         String endereco = jTextField8.getText().trim();
         if(endereco.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            JOptionPane.showMessageDialog(null, "O endereço não pode ficar em branco");
             return;
         }
          
@@ -377,7 +385,26 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "A candidatura não pode ficar em branco");
             return;
         }
-         
+        
+        String banco = jComboBox5.getSelectedItem().toString().trim();
+        if(banco.isEmpty()){
+            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
+            return;
+        }
+        
+        
+        String agencia = jTextField9.getText().trim();
+        if(agencia.isEmpty()){
+            JOptionPane.showMessageDialog(null, "A agência não pode ficar em branco");
+            return;
+        }
+        
+        
+        String conta = jTextField10.getText().trim();
+        if(conta.isEmpty()){
+            JOptionPane.showMessageDialog(null, "A conta não pode ficar em branco");
+            return;
+        }
    
         
         
@@ -395,21 +422,28 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
                    cor,
                    dtnascimento,
                    orientacaosexual,
-                   endereco);
+                   endereco,
+                   banco,
+                   agencia,
+                   conta);
         
         
         Armazenamento.armazenaCandidato(candidato);
         
+         JOptionPane.showMessageDialog(null, "Candidato cadastrado com sucesso!");
+         this.dispose();
         
         
+        /*
             System.out.println("Nome: " + nomeCandidato + " - Município: " + municipio + 
                     " - CNPJ: " + cnpj + " - CPF: "+ cpf + " - Telefone: " + telefone +
                     " - E-mail: "+ email + " - Whatsapp: " + whatsapp + " - cor: " +cor +
                     " - data nascimento: " + dtnascimento + " - Gênero: "+ genero +
                     " - Orientação sexial: " + orientacaosexual + " - Endereço: " + endereco + 
-                    " - Candidatura : " + candidatura);
+                    " - Candidatura : " + candidatura + " - Banco: "+ banco + 
+                    " - agência: "+ agencia+ " - conta: " + conta);
         
-        
+        */
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package distribuicaofundo;
+package distribuicaofundo.model;
 
 /**
  *
@@ -23,9 +23,12 @@ public class Candidato {
                    cor,
                    datanascimento,
                    orientacaosexual,
-                   endereco;
+                   endereco,
+                   banco,
+                   agencia,
+                   conta;
 
-    public Candidato(String nome, String municipio, String candidatura, String cnpj, String cpf, String telefone, String email, String whatsapp, String genero, String cor, String datanascimento, String orientacaosexual, String endereco) {
+    public Candidato(String nome, String municipio, String candidatura, String cnpj, String cpf, String telefone, String email, String whatsapp, String genero, String cor, String datanascimento, String orientacaosexual, String endereco, String banco, String agencia, String conta) {
         this.nome = nome;
         this.municipio = municipio;
         this.candidatura = candidatura;
@@ -39,6 +42,9 @@ public class Candidato {
         this.datanascimento = datanascimento;
         this.orientacaosexual = orientacaosexual;
         this.endereco = endereco;
+        this.banco = banco;
+        this.agencia = agencia;
+        this.conta = conta;
     }
 
     public String getNome() {
@@ -93,13 +99,27 @@ public class Candidato {
         return endereco;
     }
 
+    public String getBanco() {
+        return banco;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public String getConta() {
+        return conta;
+    }
+
+    @Override
+    public String toString() {
+        return "Candidato{" + "nome=" + nome + ", municipio=" + municipio + ", candidatura=" + candidatura + ", cnpj=" + cnpj + ", cpf=" + cpf + ", telefone=" + telefone + ", email=" + email + ", whatsapp=" + whatsapp + ", genero=" + genero + ", cor=" + cor + ", datanascimento=" + datanascimento + ", orientacaosexual=" + orientacaosexual + ", endereco=" + endereco + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + '}';
+    }
+
 
     
     
-    @Override
-    public String toString() {
-        return "Candidato{" + "nome=" + nome + ", municipio=" + municipio + ", candidatura=" + candidatura + ", cnpj=" + cnpj + ", cpf=" + cpf + ", telefone=" + telefone + ", email=" + email + ", whatsapp=" + whatsapp + ", genero=" + genero + ", cor=" + cor + ", datanascimento=" + datanascimento + ", orientacaosexual=" + orientacaosexual + ", endereco=" + endereco + '}';
-    }
+  
     
     
     
