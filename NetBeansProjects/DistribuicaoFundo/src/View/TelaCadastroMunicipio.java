@@ -5,6 +5,7 @@
  */
 package View;
 
+import dao.MunicipioDAO;
 import distribuicaofundo.model.Armazenamento;
 import distribuicaofundo.model.Municipio;
 import javax.swing.JOptionPane;
@@ -386,12 +387,32 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
                   agenciaDoacoes,
                   contaDoacoes);
         
+        MunicipioDAO mdao = new MunicipioDAO();
+        mdao.create(municipio);
         
-        Armazenamento.armazenaMunicipio(municipio);
         
+      //  Armazenamento.armazenaMunicipio(municipio);
         
-         JOptionPane.showMessageDialog(null, "Município cadastrado com sucesso!");
-         this.dispose();
+      
+     jTextField1.setText("");
+     jTextField10.setText("");
+     jTextField12.setText("");
+     jTextField13.setText("");
+     jTextField15.setText("");
+     jTextField16.setText("");
+     jTextField2.setText("");
+     jTextField3.setText("");
+     jTextField4.setText("");
+     jTextField5.setText("");
+     jTextField6.setText("");
+     jTextField7.setText("");
+     jTextField9.setText("");
+      
+     jComboBox1.setSelectedItem("");
+     jComboBox2.setSelectedItem("");
+     jComboBox3.setSelectedItem("");
+        // JOptionPane.showMessageDialog(null, "Município cadastrado com sucesso!");
+        // this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
