@@ -5,9 +5,9 @@
  */
 package View;
 
-import distribuicaofundo.model.Armazenamento;
+import dao.CandidatoDAO;
+import dao.MunicipioDAO;
 import distribuicaofundo.model.Candidato;
-import distribuicaofundo.model.Municipio;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -305,25 +305,18 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         
         String municipio = jTextField2.getText().trim();
         
-        boolean existe = false;
-        for(Municipio m: Armazenamento.getMunicipios()){
-            if(m.getNome().equalsIgnoreCase(municipio)){
-                existe = true; break;
-            }        
-        }
-        
-        if(existe == false){
-             JOptionPane.showMessageDialog(null, "Esse município ainda não foi cadastrado");
-            return;
-        }
-   
-   
-   
         
         if(municipio.isEmpty()){
             JOptionPane.showMessageDialog(null, "O município não pode ficar em branco");
             return;
         }
+        
+        
+        if(MunicipioDAO.checkMunicipio(municipio) == false){
+           JOptionPane.showMessageDialog(null, "Esse município ainda não foi cadastrado");
+            return;
+        } 
+        
         
         String cnpj = jTextField3.getText().trim();
         if(cnpj.isEmpty()){
@@ -428,12 +421,34 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
                    conta);
         
         
-        Armazenamento.armazenaCandidato(candidato);
+   CandidatoDAO cdao = new CandidatoDAO();
+        cdao.create(candidato);
         
-         JOptionPane.showMessageDialog(null, "Candidato cadastrado com sucesso!");
-         this.dispose();
+     //    JOptionPane.showMessageDialog(null, "Candidato cadastrado com sucesso!");
         
-        
+         
+         jTextField1.setText("");
+         jTextField2.setText("");
+         jTextField3.setText("");
+         jTextField4.setText("");
+         jTextField5.setText("");
+         jTextField6.setText("");
+         jTextField7.setText("");
+         jTextField8.setText("");
+         jTextField9.setText("");
+         jTextField10.setText("");
+         
+         
+         jComboBox1.setSelectedItem("");
+         jComboBox2.setSelectedItem("");
+         jComboBox3.setSelectedItem("");
+         jComboBox4.setSelectedItem("");
+         jComboBox5.setSelectedItem("");
+         
+         jFormattedTextField2.setText("");
+         
+         
+         
         /*
             System.out.println("Nome: " + nomeCandidato + " - Município: " + municipio + 
                     " - CNPJ: " + cnpj + " - CPF: "+ cpf + " - Telefone: " + telefone +

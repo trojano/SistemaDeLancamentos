@@ -360,9 +360,9 @@ public class TelaPagamento extends javax.swing.JFrame {
         
         Lancamento lanc = new Lancamento(municipio, nomeCandidato, responsavel, genero, banco, agencia, conta, cnpj, cor, lgbtqi, email, telefone, valorRepasse, dataRepasse, tetoGastos, NroEleitores);
         
-        Armazenamento.armazenaLancamento(lanc);
+   //     Armazenamento.armazenaLancamento(lanc);
         
-        System.out.println(Armazenamento.getLancamentos().toString());
+  //      System.out.println(Armazenamento.getLancamentos().toString());
         
         jTextField1.setText("");
         jTextField4.setText("");

@@ -8,7 +8,13 @@ package dao;
 import connection.ConnectionFactory;
 import distribuicaofundo.model.Usuario;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -18,13 +24,34 @@ import java.util.List;
 public class UsuarioDAO {
     
     
-    public List<Usuario> checkLogin(String login, String senha){
+    public boolean checkLogin(String login, String senha){
         
         
-        Connection con = ConnectionFactory.getConnection();
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean check = false;
         
         
-        return null;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM usuario WHERE login = ? AND senha = ?");
+            stmt.setString(1, login);
+            stmt.setString(2, senha);
+            
+            rs = stmt.executeQuery();
+            
+            if (rs.next()){
+                Usuario usuario = new Usuario(rs.getString("login"), rs.getString("senha"));
+                check = true;
+            }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar usuário: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+                
+        return check;
     }
     
     

@@ -7,6 +7,7 @@ package dao;
 
 import connection.ConnectionFactory;
 import distribuicaofundo.model.Municipio;
+import distribuicaofundo.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -114,6 +115,36 @@ public class MunicipioDAO {
         
         //System.out.println(lmunicipios.toString());
         return lmunicipios;
+    }
+    
+    
+        public static boolean checkMunicipio(String nome){
+        
+        
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean check = false;
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM municipio WHERE nome = ?");
+            stmt.setString(1, nome);
+            
+            
+            rs = stmt.executeQuery();
+            
+            if (rs.next()){    
+                check = true;
+            }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar municipio: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+                
+        return check;
     }
     
     

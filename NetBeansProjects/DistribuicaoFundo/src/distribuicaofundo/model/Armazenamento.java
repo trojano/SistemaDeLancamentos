@@ -16,14 +16,17 @@ public class Armazenamento {
    
     
     
-  static ArrayList<Municipio> listaMunicipios = new ArrayList<Municipio>();  
+ /* static ArrayList<Municipio> listaMunicipios = new ArrayList<Municipio>();  
   static ArrayList<Lancamento> listaLancamentos = new ArrayList<Lancamento>();
-  static ArrayList<Candidato> listaCandidatos = new ArrayList<Candidato>();
+  static ArrayList<Candidato> listaCandidatos = new ArrayList<Candidato>(); */
+    
+    private static String logado;
     
 
+    
   
   
-  
+  /*
   
   
   
@@ -55,7 +58,15 @@ public class Armazenamento {
     public static ArrayList<Municipio> getMunicipios(){
        return listaMunicipios;
    }
+ */
 
+    public static String getLogado() {
+        return logado;
+    }
+
+    public static void setLogado(String logado) {
+        Armazenamento.logado = logado;
+    }
     
     
 }
