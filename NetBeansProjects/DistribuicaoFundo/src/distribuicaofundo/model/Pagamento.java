@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author marcos
  */
-public class Lancamento {
+public class Pagamento {
     
     private String municipio,
                    nomeCandidato,
@@ -31,7 +31,7 @@ public class Lancamento {
    /* private double */ valorRepasse,
                    tetoGastos;
 
-    public Lancamento(String municipio, String nomeCandidato, String responsavel, String genero, String banco, String agencia, String conta, String cnpj, String cor, String lgbtqi, String email, String telefone, String dataRepasse, String numEleitores, String valorRepasse, String tetoGastos) {
+    public Pagamento(String municipio, String nomeCandidato, String responsavel, String genero, String banco, String agencia, String conta, String cnpj, String cor, String lgbtqi, String email, String telefone, String dataRepasse, String numEleitores, String valorRepasse, String tetoGastos) {
         this.municipio = municipio;
         this.nomeCandidato = nomeCandidato;
         this.responsavel = responsavel;
@@ -53,7 +53,7 @@ public class Lancamento {
 
     @Override
     public String toString() {
-        return "Lancamento{" + "municipio=" + municipio + ", nomeCandidato=" + nomeCandidato + ", genero=" + genero + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + ", cnpj=" + cnpj + ", cor=" + cor + ", lgbtqi=" + lgbtqi + ", email=" + email + ", telefone=" + telefone + ", responsavel=" + responsavel + /*", documentos=" + documentos +*/ ", dataRepasse=" + dataRepasse + ", numEleitores=" + numEleitores + ", valorRepasse=" + valorRepasse + ", tetoGastos=" + tetoGastos + '}';
+        return "Pagamento{" + "municipio=" + municipio + ", nomeCandidato=" + nomeCandidato + ", genero=" + genero + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + ", cnpj=" + cnpj + ", cor=" + cor + ", lgbtqi=" + lgbtqi + ", email=" + email + ", telefone=" + telefone + ", responsavel=" + responsavel + /*", documentos=" + documentos +*/ ", dataRepasse=" + dataRepasse + ", numEleitores=" + numEleitores + ", valorRepasse=" + valorRepasse + ", tetoGastos=" + tetoGastos + '}';
     }
     
 }

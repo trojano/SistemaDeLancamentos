@@ -5,6 +5,8 @@
  */
 package distribuicaofundo.model;
 
+import View.TelaLogin;
+
 /**
  *
  * @author marcos
@@ -16,6 +18,9 @@ public class DistribuicaoFundo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+            
     }
     
 }

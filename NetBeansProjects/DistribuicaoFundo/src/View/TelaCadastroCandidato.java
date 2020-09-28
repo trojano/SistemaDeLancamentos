@@ -44,7 +44,6 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -79,8 +78,21 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         jComboBox5 = new javax.swing.JComboBox<>();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
+        JFormattedTextField ftele = new javax.swing.JFormattedTextField();
+
+        try {
+
+            MaskFormatter ftmTel = new MaskFormatter("(##) #####-####");
+            ftele = new javax.swing.JFormattedTextField(ftmTel);
+
+        }
+        catch (Exception e) {
+            System.out.println("Erro na máscara");
+        }
+        jFormattedTextField1 = ftele;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro do Candidato");
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1084, 614));
@@ -101,7 +113,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
 
         jLabel8.setText("cor / raça");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Negro", "Branco", "Indígena" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Negro", "Branco", "Indígena", "Amarelo" }));
 
         jLabel9.setText("Data de nascimento");
 
@@ -144,8 +156,8 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(109, 109, 109)
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(131, 131, 131)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
@@ -237,9 +249,9 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -290,6 +302,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -330,7 +343,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
             return;
         }
         
-        String telefone = jTextField5.getText().trim();
+        String telefone = jFormattedTextField1.getText().trim();
         if(telefone.isEmpty()){
             JOptionPane.showMessageDialog(null, "O telefone não pode ficar em branco");
             return;
@@ -431,7 +444,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
          jTextField2.setText("");
          jTextField3.setText("");
          jTextField4.setText("");
-         jTextField5.setText("");
+         jFormattedTextField1.setText("");
          jTextField6.setText("");
          jTextField7.setText("");
          jTextField8.setText("");
@@ -465,7 +478,10 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    
+    
+    
+   public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -491,12 +507,9 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-               TelaCadastroCandidato tcc = new TelaCadastroCandidato();
-             tcc.setLocationRelativeTo(null);   
-             tcc.setVisible(true);
-                
-                
+           public void run() {
+              new TelaCadastroCandidato().setVisible(true);  
+       
             }
         });
     }
@@ -508,6 +521,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -531,7 +545,6 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;

@@ -7,15 +7,12 @@ package dao;
 
 import connection.ConnectionFactory;
 import distribuicaofundo.model.Municipio;
-import distribuicaofundo.model.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -146,6 +143,64 @@ public class MunicipioDAO {
                 
         return check;
     }
+        
+        
+        public Municipio getMunicipio(String nome){
+            
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Municipio muni = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM municipio WHERE nome = ?");
+            stmt.setString(1, nome);
+            
+          //  System.out.println(stmt.toString());
+            
+            rs = stmt.executeQuery();
+              
+              
+              
+              while(rs.next()){
+               
+             Municipio municipio = new Municipio(
+             rs.getString("nome"),
+             rs.getString("cnpj"),
+             rs.getString("nro_eleitores"),
+             rs.getString("responsavel_financeiro"),
+             rs.getString("email"),
+             rs.getString("telefone"),        
+             rs.getString("whatsapp"),
+             rs.getString("banco"),
+             rs.getString("agencia"),
+             rs.getString("conta"),
+             rs.getString("banco_mulheres"),
+             rs.getString("agencia_mulheres"),
+             rs.getString("conta_mulheres"),
+             rs.getString("banco_doacoes"),
+             rs.getString("agencia_doacoes"),
+             rs.getString("conta_doacoes")                                
+             );
+             
+             muni = municipio;
+          }
+             
+            
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar municipio: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+            
+            return muni;
+        }
+            
+           
+           
+            
     
     
 }
