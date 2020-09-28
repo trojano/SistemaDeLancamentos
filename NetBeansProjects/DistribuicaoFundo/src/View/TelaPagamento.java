@@ -135,13 +135,20 @@ public class TelaPagamento extends javax.swing.JFrame {
 
         jLabel9.setText("Cor / Raça");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Negro", "Branco", "Indigena", "Amarelo" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Negro", "Branco", "Indígena", "Amarelo" }));
 
         jLabel10.setText("LGBTQI+");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Lésbica", "Gay", "Bissexual", "Transexual", "Queer" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Heterossexual", "Homossexual", "Bissexual" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("E-mail");
+
+        jbanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Banrisul", "Itaú Unibanco", "Banco do Brasil", "Banco Bradesco", "Caixa Econômica Federal", "Banco Santander", "Sicredi", "Branco Safra", "BTG Pactual", "Sicoob", "Banco Votorantim", "Citibank", "Banco Santander" }));
 
         jemail.setEditable(false);
 
@@ -164,7 +171,7 @@ public class TelaPagamento extends javax.swing.JFrame {
             }
         });
 
-        jcandidatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Diretório", "Prefeito(a)", "Vice Prefeito(a)", "Vereador(a)" }));
+        jcandidatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Diretório", "Prefeito", "Vice Prefeito", "Vereador" }));
 
         jLabel3.setText("Candidatura");
 
@@ -399,29 +406,31 @@ public class TelaPagamento extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+     
+     /*   
         String candidatura = jcandidatura.getSelectedItem().toString();
+        
+         String municipio = "";
+         MunicipioDAO mdao = null;
         
         switch (candidatura) {
             case "":
                 JOptionPane.showMessageDialog(null, "O campo candidatura não pode ficar em branco!");
                 return;
-                
-                
-                
+                          
             case "Diretório":
-                String municipio = jmunicipio.getText();
+                 municipio = jmunicipio.getText();
                
-                switch (municipio) {
-                    case "":
+                if (municipio.isEmpty()) {            
                         JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
-                      
-                    default:
+                }  
+                    
                         if (MunicipioDAO.checkMunicipio(municipio) == false) {
                             JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
                            
-                        } else {
+                        }
                             
-                            MunicipioDAO mdao = new MunicipioDAO();
+                            mdao = new MunicipioDAO();
                             Municipio m = mdao.getMunicipio(municipio);
                             jcnpj.setText(m.getCnpj());
                             jemail.setText(m.getEmail());
@@ -435,51 +444,153 @@ public class TelaPagamento extends javax.swing.JFrame {
                                 
                                 
                                 case "Feminino":
-                                    jbanco.addItem(m.getBancoMulheres());
+                                    jbanco.setSelectedItem(m.getBancoMulheres());
                                     jagencia.setText(m.getAgenciaMulheres());
                                     jconta.setText(m.getContaMulheres());
                                     break;
                                     
                                 default:
-                                    jbanco.addItem(m.getBanco());
+                                    jbanco.setSelectedItem(m.getBanco());
                                     jagencia.setText(m.getAgencia());
                                     jconta.setText(m.getConta());
                                     break;
-                            }
-                        };
-                } break;
-        
-
+                            
+                                     };   break;
+ 
                 
-            case "Prefeito(a)":
+            case "Prefeito":
                  municipio = jmunicipio.getText();
                  
                  
-                 switch (municipio) {
+                 if (municipio.isEmpty()) {            
+                        JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
+                }  
+                    
+                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
+                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
+                           
+                        } 
+                         
+                            
+                            CandidatoDAO cdao = new CandidatoDAO();
+                            Candidato cand = cdao.getPrefeito(municipio);
+                            
+                            mdao = new MunicipioDAO();
+                            Municipio muni = mdao.getMunicipio(municipio);
+                 
+                        
+                            jcnpj.setText(cand.getCnpj());
+                            jemail.setText(cand.getEmail());
+                            jTelefone.setText(cand.getTelefone());
+                            jNroEleitores.setText(muni.getNro_eleitores());
+                            jgenero.setSelectedItem(cand.getGenero());
+                            jbanco.setSelectedItem(cand.getBanco());
+                            jagencia.setText(cand.getAgencia());
+                            jconta.setText(cand.getConta());
+                            jnomecandidato.setText(cand.getNome());
+                            jComboBox3.setSelectedItem(cand.getCor());
+                            jComboBox4.setSelectedItem(cand.getOrientacaosexual());
+                 
+                        break;
+                   
+                 
+            case "Vice Prefeito":
+                
+                municipio = jmunicipio.getText();
+                 
+                 
+                 if (municipio.isEmpty()) {            
+                        JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
+                }  
+                    
+                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
+                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
+                           
+                        } 
+                         
+  
+                         
+                            
+                             cdao = new CandidatoDAO();
+                            Candidato cand = cdao.getVice(municipio);
+                            
+                            MunicipioDAO mdao = new MunicipioDAO();
+                            Municipio muni = mdao.getMunicipio(municipio);
+                 
+                        
+                            jcnpj.setText(cand.getCnpj());
+                            jemail.setText(cand.getEmail());
+                            jTelefone.setText(cand.getTelefone());
+                            jNroEleitores.setText(muni.getNro_eleitores());
+                            jgenero.setSelectedItem(cand.getGenero());
+                            jbanco.setSelectedItem(cand.getBanco());
+                            jagencia.setText(cand.getAgencia());
+                            jconta.setText(cand.getConta());
+                            jnomecandidato.setText(cand.getNome());
+                            jComboBox3.setSelectedItem(cand.getCor());
+                            jComboBox4.setSelectedItem(cand.getOrientacaosexual());
+                 
+                        break;
+                 }  break;
+                
+                
+                
+                
+                
+                
+            case "Vereador":
+                
+                  municipio = jmunicipio.getText();
+                
+                
+                switch (municipio) {
                     case "":
                         JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
                       
                     default:
+                        
                         if (MunicipioDAO.checkMunicipio(municipio) == false) {
                             JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
-                           
-                        } else {
+                        } 
+                        
+                        
+                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
+                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
+                        } 
+                         
                             
                             CandidatoDAO cdao = new CandidatoDAO();
-                            Candidato cand = cdao.getPrefeito(municipio);
-                        }
+                            Candidato cand = cdao.getVerador(municipio, nome);
+                            
+                            MunicipioDAO mdao = new MunicipioDAO();
+                            Municipio muni = mdao.getMunicipio(municipio);
                  
+                        
+                            jcnpj.setText(cand.getCnpj());
+                            jemail.setText(cand.getEmail());
+                            jTelefone.setText(cand.getTelefone());
+                            jNroEleitores.setText(muni.getNro_eleitores());
+                            jgenero.setSelectedItem(cand.getGenero());
+                            jbanco.setSelectedItem(cand.getBanco());
+                            jagencia.setText(cand.getAgencia());
+                            jconta.setText(cand.getConta());
+                            jnomecandidato.setText(cand.getNome());
+                            jComboBox3.setSelectedItem(cand.getCor());
+                            jComboBox4.setSelectedItem(cand.getOrientacaosexual());
                  
-                break;
+                        break;
+                 }  break;
                 
-            case "Vice Prefeito(a)":
-            case "Vereador(a)":
                 
             default: JOptionPane.showMessageDialog(null, "O campo candidatura está com valor incorreto!");
         }
         
-        
+       */ 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
 
     /**
      * @param args the command line arguments

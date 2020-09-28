@@ -7,13 +7,10 @@ package dao;
 
 import connection.ConnectionFactory;
 import distribuicaofundo.model.Candidato;
-import distribuicaofundo.model.Municipio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,17 +60,17 @@ public class CandidatoDAO {
         
     }
 
-    public Candidato getPrefeito(String municipio) throws SQLException {
+    public Candidato getPrefeito(String municipio) {
 
         Connection con = ConnectionFactory.getConnection();        
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        
+        Candidato candi = null;
         
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM Candidato WHERE municipio = ? AND candidatura = Prefeito");
+            stmt = con.prepareStatement("SELECT * FROM candidato WHERE municipio = ? AND candidatura = 'Prefeito'");
             stmt.setString(1, municipio);
             
             
@@ -87,29 +84,88 @@ public class CandidatoDAO {
              rs.getString("nome"),
              rs.getString("municipio"),
              rs.getString("candidatura"),
-             rs.getString("responsavel_financeiro"),
-             rs.getString("email"),
+             rs.getString("cnpj"),
+             rs.getString("cpf"),
              rs.getString("telefone"),        
+             rs.getString("email"),
              rs.getString("whatsapp"),
+             rs.getString("genero"),
+             rs.getString("cor"),
+             rs.getString("dt_nascimento"),
+             rs.getString("orientacao_sexual"),
+             rs.getString("endereco"),
              rs.getString("banco"),
              rs.getString("agencia"),
-             rs.getString("conta"),
-             rs.getString("banco_mulheres"),
-             rs.getString("agencia_mulheres"),
-             rs.getString("conta_mulheres"),
-             rs.getString("banco_doacoes"),
-             rs.getString("agencia_doacoes"),
-             rs.getString("conta_doacoes")                                
+             rs.getString("conta")                                
              );
              
-             muni = municipio;
+             candi = candidato;
+             
+             
           }
             
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "Erro ao consultar municipio: "+ex);
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
         }finally{
             ConnectionFactory.closeConnection(con, stmt,rs);
         }
+        
+                return candi;
+    }
+
+    public Candidato getVice(String municipio) {
+        
+         Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Candidato candi = null;
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM candidato WHERE municipio = ? AND candidatura = 'Vice Prefeito'");
+            stmt.setString(1, municipio);
+            
+            
+             rs = stmt.executeQuery();
+              
+              
+              
+              while(rs.next()){
+               
+             Candidato candidato = new Candidato(
+             rs.getString("nome"),
+             rs.getString("municipio"),
+             rs.getString("candidatura"),
+             rs.getString("cnpj"),
+             rs.getString("cpf"),
+             rs.getString("telefone"),        
+             rs.getString("email"),
+             rs.getString("whatsapp"),
+             rs.getString("genero"),
+             rs.getString("cor"),
+             rs.getString("dt_nascimento"),
+             rs.getString("orientacao_sexual"),
+             rs.getString("endereco"),
+             rs.getString("banco"),
+             rs.getString("agencia"),
+             rs.getString("conta")                                
+             );
+             
+             candi = candidato;
+             
+             
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return candi;
+        
+        
     }
     
 }
