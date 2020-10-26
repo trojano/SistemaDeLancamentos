@@ -62,30 +62,20 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="0" pref="285" max="32767" attributes="0"/>
-                                      <Component id="jComboBox2" max="32767" attributes="0"/>
-                                      <Component id="jComboBox3" max="32767" attributes="0"/>
+                                      <Component id="jTextField4" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
+                                      <Component id="jTextField6" min="-2" pref="218" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextField5" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jTextField15" alignment="0" pref="139" max="32767" attributes="0"/>
-                                          <Component id="jTextField12" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="jTextField9" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel8" min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -164,32 +154,16 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jTextField13" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jTextField16" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="76" max="32767" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
@@ -264,36 +238,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField10">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel11">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Banco"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ag&#xea;ncia"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField12">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="text" type="java.lang.String" value="Conta FEFC mulheres"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField13">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ag&#xea;ncia"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Banco"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField15">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -310,86 +260,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="14">
-                <StringItem index="0" value=""/>
-                <StringItem index="1" value="Banrisul"/>
-                <StringItem index="2" value="Ita&#xfa; Unibanco"/>
-                <StringItem index="3" value="Banco do Brasil"/>
-                <StringItem index="4" value="Banco Bradesco"/>
-                <StringItem index="5" value="Caixa Econ&#xf4;mica Federal"/>
-                <StringItem index="6" value="Banco Santander"/>
-                <StringItem index="7" value="Sicredi"/>
-                <StringItem index="8" value="Branco Safra"/>
-                <StringItem index="9" value="BTG Pactual"/>
-                <StringItem index="10" value="Sicoob"/>
-                <StringItem index="11" value="Banco Votorantim"/>
-                <StringItem index="12" value="Citibank"/>
-                <StringItem index="13" value="Banco Santander"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="14">
-                <StringItem index="0" value=""/>
-                <StringItem index="1" value="Banrisul"/>
-                <StringItem index="2" value="Ita&#xfa; Unibanco"/>
-                <StringItem index="3" value="Banco do Brasil"/>
-                <StringItem index="4" value="Banco Bradesco"/>
-                <StringItem index="5" value="Caixa Econ&#xf4;mica Federal"/>
-                <StringItem index="6" value="Banco Santander"/>
-                <StringItem index="7" value="Sicredi"/>
-                <StringItem index="8" value="Branco Safra"/>
-                <StringItem index="9" value="BTG Pactual"/>
-                <StringItem index="10" value="Sicoob"/>
-                <StringItem index="11" value="Banco Votorantim"/>
-                <StringItem index="12" value="Citibank"/>
-                <StringItem index="13" value="Banco Santander"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="14">
-                <StringItem index="0" value=""/>
-                <StringItem index="1" value="Banrisul"/>
-                <StringItem index="2" value="Ita&#xfa; Unibanco"/>
-                <StringItem index="3" value="Banco do Brasil"/>
-                <StringItem index="4" value="Banco Bradesco"/>
-                <StringItem index="5" value="Caixa Econ&#xf4;mica Federal"/>
-                <StringItem index="6" value="Banco Santander"/>
-                <StringItem index="7" value="Sicredi"/>
-                <StringItem index="8" value="Branco Safra"/>
-                <StringItem index="9" value="BTG Pactual"/>
-                <StringItem index="10" value="Sicoob"/>
-                <StringItem index="11" value="Banco Votorantim"/>
-                <StringItem index="12" value="Citibank"/>
-                <StringItem index="13" value="Banco Santander"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="ftele"/>
             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="JFormattedTextField ftele = new javax.swing.JFormattedTextField();&#xa;&#xa;try {&#xa;&#xa;MaskFormatter ftmTel = new MaskFormatter(&quot;(##) #####-####&quot;);&#xa;ftele = new javax.swing.JFormattedTextField(ftmTel);&#xa;&#xa;}&#xa;catch (Exception e) {&#xa;    System.out.println(&quot;Erro na m&#xe1;scara&quot;);&#xa;}"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextField6">
         </Component>
       </SubComponents>
     </Container>

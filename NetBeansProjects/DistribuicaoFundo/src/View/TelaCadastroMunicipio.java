@@ -53,20 +53,11 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
         JFormattedTextField ftele = new javax.swing.JFormattedTextField();
 
         try {
@@ -79,6 +70,7 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
             System.out.println("Erro na máscara");
         }
         jFormattedTextField1 = ftele;
+        jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Município");
@@ -104,15 +96,7 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
 
         jLabel10.setText("Conta FEFC");
 
-        jLabel11.setText("Banco");
-
-        jLabel12.setText("Agência");
-
         jLabel13.setText("Conta FEFC mulheres");
-
-        jLabel14.setText("Agência");
-
-        jLabel15.setText("Banco");
 
         jLabel16.setText("Conta doações");
 
@@ -122,12 +106,6 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Banrisul", "Itaú Unibanco", "Banco do Brasil", "Banco Bradesco", "Caixa Econômica Federal", "Banco Santander", "Sicredi", "Branco Safra", "BTG Pactual", "Sicoob", "Banco Votorantim", "Citibank", "Banco Santander" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Banrisul", "Itaú Unibanco", "Banco do Brasil", "Banco Bradesco", "Caixa Econômica Federal", "Banco Santander", "Sicredi", "Branco Safra", "BTG Pactual", "Sicoob", "Banco Votorantim", "Citibank", "Banco Santander" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Banrisul", "Itaú Unibanco", "Banco do Brasil", "Banco Bradesco", "Caixa Econômica Federal", "Banco Santander", "Sicredi", "Branco Safra", "BTG Pactual", "Sicoob", "Banco Votorantim", "Citibank", "Banco Santander" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,26 +129,17 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jComboBox1, 0, 285, Short.MAX_VALUE)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(75, 75, 75)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel14)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.LEADING))))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -231,27 +200,15 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
+                .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
+                .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(58, 58, 58))
@@ -282,106 +239,60 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
         }
         
         String cnpj = jTextField2.getText().trim();
-        if(cnpj.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O CNPJ não pode ficar em branco");
-            return;
-        }
+       
         
         String nroeleitores = jTextField3.getText().trim();
-        if(nroeleitores.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O número de eleitores não pode ficar em branco");
-            return;
-        }
+       
         
         String respfinanceiro = jTextField4.getText().trim();
-        if(respfinanceiro.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O responsável financeiro não pode ficar em branco");
-            return;
-        }
         
         String email = jTextField5.getText().trim();
-        if(email.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O e-mail não pode ficar em branco");
-            return;
-        }
         
         
         String telefone = jFormattedTextField1.getText().trim();
-        if(telefone.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O telefone não pode ficar em branco");
-            return;
-        }
-        
+           
         
         String whatsapp = jTextField7.getText().trim();
         
         
         
-         String banco = jComboBox1.getSelectedItem().toString().trim();
-        if(banco.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
-            return;
-        }
+         String banco = jTextField6.getText().trim();
+       
          
         
         
         String agencia = jTextField9.getText().trim();
-        if(agencia.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A agência não pode ficar em branco");
-            return;
-        }
-        
+       
         
         String contaFefc = jTextField10.getText().trim();
-        if(contaFefc.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A conta FEFC não pode ficar em branco");
-            return;
-        }
+       
         
         
-         String bancomulheres = jComboBox2.getSelectedItem().toString().trim();
-        if(bancomulheres.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O banco FEFC mulheres não pode ficar em branco");
-            return;
-        }
+         String bancomulheres = jTextField6.getText().trim();
+       
          
         
         
-        String agenciamulheres = jTextField12.getText().trim();
-        if(agenciamulheres.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A agência não pode ficar em branco");
-            return;
-        }
+        String agenciamulheres = jTextField9.getText().trim();
+       
         
         
         String contaFefcMulheres = jTextField13.getText().trim();
-        if(contaFefcMulheres.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A conta FEFC Mulheres não pode ficar em branco");
-            return;
-        }
+       
         
         
         
-         String bancoDoacoes = jComboBox3.getSelectedItem().toString().trim();
-        if(bancoDoacoes.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O banco doações não pode ficar em branco");
-            return;
-        }
+         String bancoDoacoes = jTextField6.getText().trim();
+       
          
         
         
-        String agenciaDoacoes = jTextField15.getText().trim();
-        if(agenciaDoacoes.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A agência não pode ficar em branco");
-            return;
-        }
+        String agenciaDoacoes = jTextField9.getText().trim();
+       
         
         
         String contaDoacoes = jTextField16.getText().trim();
-        if(contaDoacoes.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A conta Doações não pode ficar em branco");
-            return;
-        }
+       
         
         
         
@@ -413,21 +324,21 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
       
      jTextField1.setText("");
      jTextField10.setText("");
-     jTextField12.setText("");
+     
      jTextField13.setText("");
-     jTextField15.setText("");
+     
      jTextField16.setText("");
      jTextField2.setText("");
      jTextField3.setText("");
      jTextField4.setText("");
      jTextField5.setText("");
+     jTextField6.setText("");
      jFormattedTextField1.setText("");
      jTextField7.setText("");
      jTextField9.setText("");
       
-     jComboBox1.setSelectedItem("");
-     jComboBox2.setSelectedItem("");
-     jComboBox3.setSelectedItem("");
+    
+    
         // JOptionPane.showMessageDialog(null, "Município cadastrado com sucesso!");
         // this.dispose();
         
@@ -472,17 +383,10 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -495,14 +399,13 @@ public class TelaCadastroMunicipio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables

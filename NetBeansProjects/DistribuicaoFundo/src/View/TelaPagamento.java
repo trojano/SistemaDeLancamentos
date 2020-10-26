@@ -9,8 +9,10 @@ package View;
 
 import dao.CandidatoDAO;
 import dao.MunicipioDAO;
+import dao.PagamentoDAO;
 import distribuicaofundo.model.Candidato;
 import distribuicaofundo.model.Municipio;
+import distribuicaofundo.model.Pagamento;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -43,59 +45,25 @@ public class TelaPagamento extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jnomecandidato = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jgenero = new javax.swing.JComboBox<>();
+        jtpConta = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jagencia = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jconta = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jcnpj = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jbanco = new javax.swing.JComboBox<>();
-        jemail = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        JFormattedTextField ftele = new javax.swing.JFormattedTextField();
-
-        try {
-
-            MaskFormatter ftmTel = new MaskFormatter("(##) #####-####");
-            ftele = new javax.swing.JFormattedTextField(ftmTel);
-
-        }
-        catch (Exception e) {
-            System.out.println("Erro na máscara");
-        }
-        jTelefone = ftele;
         jLabel13 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        JFormattedTextField fdata = new javax.swing.JFormattedTextField();
-
-        try {
-
-            MaskFormatter ftmData = new MaskFormatter("##/##/####");
-            fdata = new javax.swing.JFormattedTextField(ftmData);
-
-        }
-        catch (Exception e) {
-            System.out.println("Erro na máscara");
-        }
-        jTextField9 = fdata;
-        jLabel17 = new javax.swing.JLabel();
-        jNroEleitores = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jcandidatura = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jmunicipio = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pagamentos");
@@ -103,11 +71,9 @@ public class TelaPagamento extends javax.swing.JFrame {
 
         jLabel1.setText("Município");
 
-        jLabel2.setText("Nome do(a) candidato(a)");
+        jLabel4.setText("Tipo de conta");
 
-        jLabel4.setText("Gênero");
-
-        jgenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Masculino", "Feminino", "Outro" }));
+        jtpConta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "FEFC", "FEFC Mulheres", "Doações", "Majoritária" }));
 
         jLabel5.setText("Banco");
 
@@ -129,40 +95,11 @@ public class TelaPagamento extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("CNPJ ");
-
-        jcnpj.setEditable(false);
-
         jLabel9.setText("Cor / Raça");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Negro", "Branco", "Indígena", "Amarelo" }));
-
-        jLabel10.setText("LGBTQI+");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Heterossexual", "Homossexual", "Bissexual" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setText("E-mail");
-
-        jbanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Banrisul", "Itaú Unibanco", "Banco do Brasil", "Banco Bradesco", "Caixa Econômica Federal", "Banco Santander", "Sicredi", "Branco Safra", "BTG Pactual", "Sicoob", "Banco Votorantim", "Citibank", "Banco Santander" }));
-
-        jemail.setEditable(false);
-
-        jLabel12.setText("Telefone");
-
-        jTelefone.setEditable(false);
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "PRETA", "PARDA", "BRANCA", "INDÍGENA", "AMARELA" }));
 
         jLabel13.setText("Valor do repasse");
-
-        jLabel14.setText("Data do Repasse");
-
-        jLabel17.setText("Nº de eleitores");
-
-        jNroEleitores.setEditable(false);
 
         jButton1.setText("Inserir Pagamento");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +108,7 @@ public class TelaPagamento extends javax.swing.JFrame {
             }
         });
 
-        jcandidatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Diretório", "Prefeito", "Vice Prefeito", "Vereador" }));
+        jcandidatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Diretório", "Majoritária" }));
 
         jLabel3.setText("Candidatura");
 
@@ -182,155 +119,104 @@ public class TelaPagamento extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setEditable(false);
+
+        jLabel2.setText("Nome do candidato (para pagamentos p/ majoritária)");
+
+        jTextField2.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(470, 470, 470)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(223, 223, 223)
+                                    .addComponent(jagencia, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jmunicipio))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(73, 73, 73)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(90, 90, 90)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jconta, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jcandidatura, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addGap(83, 83, 83)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jtpConta, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(103, 103, 103)
+                                        .addComponent(jButton2))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
+                        .addGap(80, 80, 80)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(611, 611, 611)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jcandidatura, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGap(52, 52, 52)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jgenero, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jButton2))
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(541, 541, 541)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel13)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel14))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(242, 242, 242)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(186, 186, 186)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jNroEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jbanco, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(283, 283, 283)
-                                                .addComponent(jLabel10)))
-                                        .addGap(84, 84, 84))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jmunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(98, 98, 98)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jagencia, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(65, 65, 65)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jconta, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jemail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11)))
-                                    .addComponent(jnomecandidato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(128, 128, 128)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
-                .addGap(0, 26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(565, 565, 565))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                            .addComponent(jTextField2))))
+                .addGap(0, 60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jmunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jnomecandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcandidatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jgenero, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtpConta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel7))
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jagencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jconta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel9))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel10)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(42, 42, 42)
+                    .addComponent(jconta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel2))
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jNroEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
                 .addComponent(jButton1)
-                .addGap(60, 60, 60))
+                .addGap(129, 129, 129))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -338,14 +224,14 @@ public class TelaPagamento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -356,44 +242,53 @@ public class TelaPagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         
-        String nomeCandidato = jnomecandidato.getText();
-        String responsavel = jcandidatura.getSelectedItem().toString();
-        String genero = jgenero.getSelectedItem().toString();
-        String banco = jbanco.getSelectedItem().toString();
+        String municipio = jmunicipio.getText().trim();
+        String candidatura = jcandidatura.getSelectedItem().toString();
+        String tpconta = jtpConta.getSelectedItem().toString();
+        
+        String banco = jTextField1.getText();
         String agencia = jagencia.getText();
         String conta = jconta.getText();
-        String cnpj = jcnpj.getText();
+        
         String cor = jComboBox3.getSelectedItem().toString();
-        String lgbtqi = jComboBox4.getSelectedItem().toString();
-        String email = jemail.getText();
-        String telefone = jTelefone.getText();
-        String valorRepasse = jTextField8.getText();
-        String dataRepasse = jTextField9.getText();
-        String NroEleitores = jNroEleitores.getText();
-
-       // Pagamento lanc = new Pagamento(municipio, nomeCandidato, responsavel, genero, banco, agencia, conta, cnpj, cor, lgbtqi, email, telefone, valorRepasse, dataRepasse, NroEleitores);
-
-        //     Armazenamento.armazenaLancamento(lanc);
-
-        //      System.out.println(Armazenamento.getLancamentos().toString());
-
-        jnomecandidato.setText("");
+        String nm_candidato = jTextField2.getText();
+        Double valorRepasse = null;
+        
+        try{
+        valorRepasse = Double.parseDouble(jTextField8.getText());
+        }catch(Exception e){
+              JOptionPane.showMessageDialog(null, "Ocorreu um erro ao processar o campo valor");
+                return;  
+        }
+        
+        jmunicipio.setText("");
+        jcandidatura.setSelectedItem("");
+        jtpConta.setSelectedItem("");
+        
+        jTextField1.setText("");
         jagencia.setText("");
         jconta.setText("");
-        jcnpj.setText("");
-        jemail.setText("");
-        jTelefone.setText("");
+        
+        jComboBox3.setSelectedItem("");
+        jTextField2.setText("");
         jTextField8.setText("");
-        jTextField9.setText("");
-        jNroEleitores.setText("");
-
-        /*   System.out.println(municipio + "-" + nomeCandidato + "-" + responsavel);
-        System.out.println(genero + "-" + banco + "-" + agencia);
-        System.out.println(conta + "-" + cnpj + "-" + cor);
-        System.out.println(lgbtqi + "-" + email + "-" + telefone);
-        System.out.println(valorRepasse + "-" + dataRepasse);
-        System.out.println(tetoGastos + "-" + NroEleitores);
-        */
+        
+ 
+        
+        Pagamento pagamento = new Pagamento(
+                 municipio,
+                  candidatura,
+                  tpconta,
+                  banco,
+                  agencia,
+                  conta,
+                  cor,
+                  nm_candidato,
+                  valorRepasse);
+        
+        PagamentoDAO mdao = new PagamentoDAO();
+        mdao.create(pagamento);
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jcontaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcontaActionPerformed
@@ -407,190 +302,107 @@ public class TelaPagamento extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
      
-     /*   
-        String candidatura = jcandidatura.getSelectedItem().toString();
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jconta.setText("");
+        jagencia.setText("");
         
-         String municipio = "";
+         String candidatura = jcandidatura.getSelectedItem().toString();
+         
+         if(candidatura == null){
+             JOptionPane.showMessageDialog(null, "O campo candidatura não pode ficar em branco!");
+                return;  
+         }
+         
+        
+         String municipio = jmunicipio.getText();
          MunicipioDAO mdao = null;
-        
-        switch (candidatura) {
-            case "":
-                JOptionPane.showMessageDialog(null, "O campo candidatura não pode ficar em branco!");
-                return;
-                          
-            case "Diretório":
-                 municipio = jmunicipio.getText();
-               
-                if (municipio.isEmpty()) {            
+         
+         
+          if (municipio.trim().isEmpty()) {            
                         JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
-                }  
+                } 
+                                 
+                
+           if (MunicipioDAO.checkMunicipio(municipio) == false) {
+                        JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;                           
+                }
+         
+         
+        switch (candidatura) {
+          
+            case "Diretório":
+                                           
+                    mdao = new MunicipioDAO();
+                    Municipio m = mdao.getMunicipio(municipio);
                     
-                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
-                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
-                           
-                        }
-                            
-                            mdao = new MunicipioDAO();
-                            Municipio m = mdao.getMunicipio(municipio);
-                            jcnpj.setText(m.getCnpj());
-                            jemail.setText(m.getEmail());
-                            jTelefone.setText(m.getTelefone());
-                            jNroEleitores.setText(m.getNro_eleitores());
                             
                             
-                            String genero = jgenero.getSelectedItem().toString();
-                            switch (genero) {
-                                case "": JOptionPane.showMessageDialog(null, "O campo gênero não pode ficar em branco!"); return;
-                                
-                                
-                                case "Feminino":
-                                    jbanco.setSelectedItem(m.getBancoMulheres());
-                                    jagencia.setText(m.getAgenciaMulheres());
+                            String tpConta = jtpConta.getSelectedItem().toString();
+                            
+                            
+                            
+                            if(tpConta.trim().isEmpty()) {
+                                JOptionPane.showMessageDialog(null, "O campo tipo de conta não pode ficar em branco!");
+                                return;
+                            } 
+                            
+                            switch (tpConta) {
+
+                                case "FEFC Mulheres":
+                                    
+                                    jTextField1.setText(m.getBanco());
+                                    jagencia.setText(m.getAgencia());
                                     jconta.setText(m.getContaMulheres());
                                     break;
                                     
+                                    case "Doações":
+                                    jTextField1.setText(m.getBanco());
+                                    jagencia.setText(m.getAgencia());
+                                    jconta.setText(m.getContaDoacoes());
+                                    break;
+                                    
                                 default:
-                                    jbanco.setSelectedItem(m.getBanco());
+                                    jTextField1.setText(m.getBanco());
                                     jagencia.setText(m.getAgencia());
                                     jconta.setText(m.getConta());
                                     break;
-                            
-                                     };   break;
- 
-                
-            case "Prefeito":
-                 municipio = jmunicipio.getText();
-                 
-                 
-                 if (municipio.isEmpty()) {            
-                        JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
-                }  
+                            }
+                                     break;
+                          
+                                     
+              case "Majoritária":  
+                  
                     
-                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
-                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
-                           
-                        } 
-                         
-                            
-                            CandidatoDAO cdao = new CandidatoDAO();
-                            Candidato cand = cdao.getPrefeito(municipio);
-                            
-                            mdao = new MunicipioDAO();
-                            Municipio muni = mdao.getMunicipio(municipio);
+                 CandidatoDAO cdao = new CandidatoDAO();
+                 Candidato cand = null;
+                   cand = cdao.getPrefeito(municipio);
+                 
+                 if(cand == null){
+                  cand = cdao.getVice(municipio);
+                 }
+                 
+                 
+                 mdao = new MunicipioDAO();
+                 Municipio muni = mdao.getMunicipio(municipio);
                  
                         
-                            jcnpj.setText(cand.getCnpj());
-                            jemail.setText(cand.getEmail());
-                            jTelefone.setText(cand.getTelefone());
-                            jNroEleitores.setText(muni.getNro_eleitores());
-                            jgenero.setSelectedItem(cand.getGenero());
-                            jbanco.setSelectedItem(cand.getBanco());
-                            jagencia.setText(cand.getAgencia());
-                            jconta.setText(cand.getConta());
-                            jnomecandidato.setText(cand.getNome());
-                            jComboBox3.setSelectedItem(cand.getCor());
-                            jComboBox4.setSelectedItem(cand.getOrientacaosexual());
+        
                  
+                        jtpConta.setSelectedItem("Majoritária");
+                        jTextField1.setText(cand.getBanco());
+                        jagencia.setText(cand.getAgencia());
+                        jconta.setText(cand.getConta());
+                        jTextField2.setText(cand.getNome());
+                        jComboBox3.setSelectedItem(cand.getCor().toUpperCase());
+                       
                         break;
-                   
-                 
-            case "Vice Prefeito":
-                
-                municipio = jmunicipio.getText();
-                 
-                 
-                 if (municipio.isEmpty()) {            
-                        JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
-                }  
-                    
-                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
-                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
-                           
-                        } 
-                         
-  
-                         
-                            
-                             cdao = new CandidatoDAO();
-                            Candidato cand = cdao.getVice(municipio);
-                            
-                            MunicipioDAO mdao = new MunicipioDAO();
-                            Municipio muni = mdao.getMunicipio(municipio);
-                 
-                        
-                            jcnpj.setText(cand.getCnpj());
-                            jemail.setText(cand.getEmail());
-                            jTelefone.setText(cand.getTelefone());
-                            jNroEleitores.setText(muni.getNro_eleitores());
-                            jgenero.setSelectedItem(cand.getGenero());
-                            jbanco.setSelectedItem(cand.getBanco());
-                            jagencia.setText(cand.getAgencia());
-                            jconta.setText(cand.getConta());
-                            jnomecandidato.setText(cand.getNome());
-                            jComboBox3.setSelectedItem(cand.getCor());
-                            jComboBox4.setSelectedItem(cand.getOrientacaosexual());
-                 
-                        break;
-                 }  break;
-                
-                
-                
-                
-                
-                
-            case "Vereador":
-                
-                  municipio = jmunicipio.getText();
-                
-                
-                switch (municipio) {
-                    case "":
-                        JOptionPane.showMessageDialog(null, "O campo município não pode ficar em branco!");   return;
-                      
-                    default:
-                        
-                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
-                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
-                        } 
-                        
-                        
-                        if (MunicipioDAO.checkMunicipio(municipio) == false) {
-                            JOptionPane.showMessageDialog(null, "O município digitado não está cadastrado!");  return;
-                        } 
-                         
-                            
-                            CandidatoDAO cdao = new CandidatoDAO();
-                            Candidato cand = cdao.getVerador(municipio, nome);
-                            
-                            MunicipioDAO mdao = new MunicipioDAO();
-                            Municipio muni = mdao.getMunicipio(municipio);
-                 
-                        
-                            jcnpj.setText(cand.getCnpj());
-                            jemail.setText(cand.getEmail());
-                            jTelefone.setText(cand.getTelefone());
-                            jNroEleitores.setText(muni.getNro_eleitores());
-                            jgenero.setSelectedItem(cand.getGenero());
-                            jbanco.setSelectedItem(cand.getBanco());
-                            jagencia.setText(cand.getAgencia());
-                            jconta.setText(cand.getConta());
-                            jnomecandidato.setText(cand.getNome());
-                            jComboBox3.setSelectedItem(cand.getCor());
-                            jComboBox4.setSelectedItem(cand.getOrientacaosexual());
-                 
-                        break;
-                 }  break;
-                
-                
+                  
             default: JOptionPane.showMessageDialog(null, "O campo candidatura está com valor incorreto!");
         }
         
-       */ 
+        
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -633,35 +445,23 @@ public class TelaPagamento extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jNroEleitores;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTelefone;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jagencia;
-    private javax.swing.JComboBox<String> jbanco;
     private javax.swing.JComboBox<String> jcandidatura;
-    private javax.swing.JTextField jcnpj;
     private javax.swing.JTextField jconta;
-    private javax.swing.JTextField jemail;
-    private javax.swing.JComboBox<String> jgenero;
     private javax.swing.JTextField jmunicipio;
-    private javax.swing.JTextField jnomecandidato;
+    private javax.swing.JComboBox<String> jtpConta;
     // End of variables declaration//GEN-END:variables
 }

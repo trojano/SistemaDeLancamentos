@@ -115,7 +115,7 @@ public class CandidatoDAO {
 
     public Candidato getVice(String municipio) {
         
-         Connection con = ConnectionFactory.getConnection();        
+        Connection con = ConnectionFactory.getConnection();        
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
@@ -165,6 +165,102 @@ public class CandidatoDAO {
         
                 return candi;
         
+        
+    }
+
+    public String qtdVereadores(String municipio) {
+        
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        String qtdVereadores = "Erro";
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT count(*) FROM candidato WHERE municipio = ? AND candidatura = 'Vereador'");
+            stmt.setString(1, municipio);
+            
+            
+            rs = stmt.executeQuery();
+                 
+             while(rs.next()){
+             
+                 qtdVereadores = rs.getString("count(*)");
+
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return qtdVereadores;
+ 
+    }
+
+    public String qtdPretosPardos(String municipio) {
+       
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        String PretosPardos = "Erro";
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT count(*) FROM candidato WHERE municipio = ? AND candidatura = 'Vereador' and (cor = 'preta' or cor = 'parda')");
+            stmt.setString(1, municipio);
+            
+            
+            rs = stmt.executeQuery();
+                 
+             while(rs.next()){
+             
+                 PretosPardos = rs.getString("count(*)");
+
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return PretosPardos;
+        
+    }
+
+    public String qtdMulheres(String municipio) {
+        
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        String mulheres = "Erro";
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT count(*) FROM candidato WHERE municipio = ? AND candidatura = 'Vereador' and genero = 'Feminino'");
+            stmt.setString(1, municipio);
+            
+            
+            rs = stmt.executeQuery();
+                 
+             while(rs.next()){
+             
+                 mulheres = rs.getString("count(*)");
+
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return mulheres;
         
     }
     

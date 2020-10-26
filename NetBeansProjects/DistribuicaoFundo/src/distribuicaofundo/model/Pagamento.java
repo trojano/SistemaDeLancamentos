@@ -5,7 +5,6 @@
  */
 package distribuicaofundo.model;
 
-import java.util.Date;
 
 /**
  *
@@ -14,46 +13,104 @@ import java.util.Date;
 public class Pagamento {
     
     private String municipio,
-                   nomeCandidato,
-                   genero,
-                   banco,
-                   agencia,
-                   conta,
-                   cnpj,
-                   cor,
-                   lgbtqi,
-                   email,
-                   telefone,
-                   responsavel,
-              //     documentos, 
-    /*private Date*/ dataRepasse,
-   /* private int*/ numEleitores,
-   /* private double */ valorRepasse,
-                   tetoGastos;
+                  candidatura,
+                  tpconta,
+                  banco,
+                  agencia,
+                  conta,
+                  cor,
+                  nm_candidato;         
+    private Double valorRepasse;
 
-    public Pagamento(String municipio, String nomeCandidato, String responsavel, String genero, String banco, String agencia, String conta, String cnpj, String cor, String lgbtqi, String email, String telefone, String dataRepasse, String numEleitores, String valorRepasse, String tetoGastos) {
+    public Pagamento(String municipio, String candidatura, String tpconta, String banco, String agencia, String conta, String cor, String nm_candidato, Double valorRepasse) {
         this.municipio = municipio;
-        this.nomeCandidato = nomeCandidato;
-        this.responsavel = responsavel;
-        this.genero = genero;
+        this.candidatura = candidatura;
+        this.tpconta = tpconta;
         this.banco = banco;
         this.agencia = agencia;
         this.conta = conta;
-        this.cnpj = cnpj;
         this.cor = cor;
-        this.lgbtqi = lgbtqi;
-        this.email = email;
-        this.telefone = telefone;
-     //   this.documentos = documentos;
-        this.dataRepasse = dataRepasse;
-        this.numEleitores = numEleitores;
+        this.nm_candidato = nm_candidato;
         this.valorRepasse = valorRepasse;
-        this.tetoGastos = tetoGastos;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getCandidatura() {
+        return candidatura;
+    }
+
+    public void setCandidatura(String candidatura) {
+        this.candidatura = candidatura;
+    }
+
+    public String getTpconta() {
+        return tpconta;
+    }
+
+    public void setTpconta(String tpconta) {
+        this.tpconta = tpconta;
+    }
+
+    public String getBanco() {
+        return banco;
+    }
+
+    public void setBanco(String banco) {
+        this.banco = banco;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public String getConta() {
+        return conta;
+    }
+
+    public void setConta(String conta) {
+        this.conta = conta;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getNm_candidato() {
+        return nm_candidato;
+    }
+
+    public void setNm_candidato(String nm_candidato) {
+        this.nm_candidato = nm_candidato;
+    }
+
+    public Double getValorRepasse() {
+        return valorRepasse;
+    }
+
+    public void setValorRepasse(Double valorRepasse) {
+        this.valorRepasse = valorRepasse;
     }
 
     @Override
     public String toString() {
-        return "Pagamento{" + "municipio=" + municipio + ", nomeCandidato=" + nomeCandidato + ", genero=" + genero + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + ", cnpj=" + cnpj + ", cor=" + cor + ", lgbtqi=" + lgbtqi + ", email=" + email + ", telefone=" + telefone + ", responsavel=" + responsavel + /*", documentos=" + documentos +*/ ", dataRepasse=" + dataRepasse + ", numEleitores=" + numEleitores + ", valorRepasse=" + valorRepasse + ", tetoGastos=" + tetoGastos + '}';
+        return "Pagamento{" + "municipio=" + municipio + ", candidatura=" + candidatura + ", tpconta=" + tpconta + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + ", cor=" + cor + ", nm_candidato=" + nm_candidato + ", valorRepasse=" + valorRepasse + '}';
     }
+         
+    
     
 }

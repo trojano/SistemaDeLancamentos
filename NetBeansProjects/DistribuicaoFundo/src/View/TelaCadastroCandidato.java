@@ -113,7 +113,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
 
         jLabel8.setText("cor / raça");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Negro", "Branco", "Indígena", "Amarelo" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Preta", "Parda", "Branca", "Indígena", "Amarela" }));
 
         jLabel9.setText("Data de nascimento");
 
@@ -324,37 +324,25 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
             return;
         }
         
-        
+     /*   
         if(MunicipioDAO.checkMunicipio(municipio) == false){
            JOptionPane.showMessageDialog(null, "Esse município ainda não foi cadastrado");
             return;
         } 
-        
+        */
         
         String cnpj = jTextField3.getText().trim();
-        if(cnpj.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O cnpj não pode ficar em branco");
-            return;
-        }
+      
         
         String cpf = jTextField4.getText().trim();
-        if(cpf.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O cpf não pode ficar em branco");
-            return;
-        }
+      
         
         String telefone = jFormattedTextField1.getText().trim();
-        if(telefone.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O telefone não pode ficar em branco");
-            return;
-        }
+      
         
         
         String email = jTextField6.getText().trim();
-        if(email.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O e-mail não pode ficar em branco");
-            return;
-        }
+      
         
         
          String whatsapp = jTextField7.getText().trim();
@@ -370,20 +358,14 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         
          
         String genero = jComboBox2.getSelectedItem().toString().trim();
-        if(genero.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O gênero não pode ficar em branco");
-            return;
-        }
+     
          
         String orientacaosexual = jComboBox3.getSelectedItem().toString().trim();
         
          
         
         String endereco = jTextField8.getText().trim();
-        if(endereco.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O endereço não pode ficar em branco");
-            return;
-        }
+        
          
         
         String candidatura = jComboBox4.getSelectedItem().toString().trim();
@@ -393,27 +375,13 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
         }
         
         String banco = jComboBox5.getSelectedItem().toString().trim();
-        if(banco.isEmpty()){
-            JOptionPane.showMessageDialog(null, "O banco não pode ficar em branco");
-            return;
-        }
-        
+       
         
         String agencia = jTextField9.getText().trim();
-        if(agencia.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A agência não pode ficar em branco");
-            return;
-        }
-        
+       
         
         String conta = jTextField10.getText().trim();
-        if(conta.isEmpty()){
-            JOptionPane.showMessageDialog(null, "A conta não pode ficar em branco");
-            return;
-        }
-   
-        
-        
+         
         
         Candidato candidato = new Candidato(
                    nomeCandidato,
