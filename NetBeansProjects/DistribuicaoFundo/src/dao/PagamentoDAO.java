@@ -101,7 +101,7 @@ public class PagamentoDAO {
         
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM pagamento WHERE municipio = ? and (cor = 'preta' or cor = 'parda')");
+            stmt = con.prepareStatement("SELECT * FROM pagamento WHERE municipio = ? and candidatura = 'Diretório' and (cor = 'preta' or cor = 'parda')");
             stmt.setString(1, municipio);
             
             
@@ -125,6 +125,112 @@ public class PagamentoDAO {
                 return vpp;
         
         
+    }
+
+    public Double repasseMajoritaria(String municipio) {
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Double ValorMajoritaria = 0.0;
+        
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM pagamento WHERE municipio = ? and candidatura = 'Majoritária'");
+            stmt.setString(1, municipio);
+            
+            
+            rs = stmt.executeQuery();    
+            
+            
+             while(rs.next()){
+             
+                 
+                    ValorMajoritaria = ValorMajoritaria + Double.parseDouble(rs.getString("valor"));
+                    
+
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar pagamento: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return ValorMajoritaria;
+    }
+
+    public Double repasseVereradores(String municipio) {
+        
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Double ValorVereadores = 0.0;
+        
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM pagamento WHERE municipio = ? and candidatura = 'Diretório'");
+            stmt.setString(1, municipio);
+            
+            
+            rs = stmt.executeQuery();    
+            
+            
+             while(rs.next()){
+             
+                 
+                    ValorVereadores = ValorVereadores + Double.parseDouble(rs.getString("valor"));
+                    
+
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar pagamento: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return ValorVereadores;
+        
+    }
+
+    public Double repasseMulheres(String municipio) {
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Double vpp = 0.0;
+        
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM pagamento WHERE municipio = ? and candidatura = 'Diretório' and tp_conta = 'FEFC Mulheres'");
+            stmt.setString(1, municipio);
+            
+            
+            rs = stmt.executeQuery();    
+            
+            
+             while(rs.next()){
+             
+                 
+                    vpp = vpp + Double.parseDouble(rs.getString("valor"));
+                    
+
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar pagamento: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return vpp;
+        
+       
     }
    
     

@@ -360,7 +360,7 @@
               <StringArray count="4">
                 <StringItem index="0" value=""/>
                 <StringItem index="1" value="Prefeito"/>
-                <StringItem index="2" value="Vice Prefeito"/>
+                <StringItem index="2" value="Vice-Prefeito"/>
                 <StringItem index="3" value="Vereador"/>
               </StringArray>
             </Property>

@@ -7,6 +7,7 @@ package View;
 
 import dao.CandidatoDAO;
 import dao.PagamentoDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,15 +55,19 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextPercentRepPP = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jTextPercentRepMulheres = new javax.swing.JTextField();
         jTextValorTotal = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextValorMajoritaria = new javax.swing.JTextField();
+        jTextValorVereadores = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Município");
 
@@ -115,15 +120,27 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
 
         jLabel12.setText("% repasse mulheres");
 
-        jTextField12.setEditable(false);
+        jTextPercentRepMulheres.setEditable(false);
 
         jTextValorTotal.setEditable(false);
 
         jLabel13.setText("Valor total repassado");
 
+        jTextValorMajoritaria.setEditable(false);
+
+        jTextValorVereadores.setEditable(false);
+
         jLabel14.setText("Valor para majoritária");
 
         jLabel15.setText("Valor para vereadores");
+
+        jTextField1.setEditable(false);
+
+        jLabel16.setText("valor que falta");
+
+        jTextField2.setEditable(false);
+
+        jLabel17.setText("valor que falta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,44 +149,6 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(130, 130, 130))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextPercentPP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jTextQTDMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextPercentMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextqtdPP, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jTextRepassePP, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextRepMulheres, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextPercentRepPP, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addContainerGap(96, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,11 +164,59 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(108, 108, 108)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                    .addComponent(jTextValorMajoritaria)
+                                    .addComponent(jTextValorVereadores, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 475, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextMunicipio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextPercentPP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jTextQTDMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextPercentMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextqtdPP, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(83, 83, 83)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextRepassePP, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jTextRepMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(101, 101, 101)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextPercentRepMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jTextPercentRepPP, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addContainerGap(186, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,14 +227,14 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextValorMajoritaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -215,7 +242,7 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextqtdVereadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextValorVereadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -229,26 +256,30 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel9)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextqtdPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextPercentPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextRepassePP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextPercentRepPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addComponent(jTextPercentRepPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextQTDMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextPercentMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextRepMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(148, Short.MAX_VALUE))
+                    .addComponent(jTextPercentRepMulheres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,6 +287,8 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        
         
         
         jTextqtdVereadores.setText("");
@@ -274,15 +307,19 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
 
         jTextValorTotal.setText("");
         
+        jTextValorMajoritaria.setText("");
+        
+        jTextValorVereadores.setText("");
         
         
-        
+        //municipio
         String municipio = jTextMunicipio.getText().trim();
           
         CandidatoDAO cdao = new CandidatoDAO();
         
         
         try{
+        //candidato a prefeito, quando há    
         jTextPrefeito.setText(cdao.getPrefeito(municipio).getNome());
         }
         catch(Exception e){
@@ -290,6 +327,8 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         }
         
         try{
+            
+        //candidato a vice, quando há    
         jTextVice.setText(cdao.getVice(municipio).getNome());
         }
         catch(Exception e){
@@ -298,6 +337,7 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
            
         
         try{
+            // quantidade total de vereadores
             jTextqtdVereadores.setText(cdao.qtdVereadores(municipio));
             
         }catch(Exception e){
@@ -307,6 +347,8 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         
         
          try{
+             
+             //quantidade de vereadores pretos e pardos
             jTextqtdPP.setText(cdao.qtdPretosPardos(municipio));
             
         }catch(Exception e){
@@ -314,20 +356,27 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         }
          
          
+         Double ppp = 0.0;
+         
+       //  percentual de vereadores pretos e pardos
          try{
              
-             int vtotal = Integer.parseInt(jTextqtdVereadores.getText());
-             int vpp = Integer.parseInt(jTextqtdPP.getText());
-             int ppp = (vpp*100)/vtotal;
+             Double vtotal = Double.parseDouble(jTextqtdVereadores.getText());
+             Double vpp = Double.parseDouble(jTextqtdPP.getText());
+             ppp = (vpp*100)/vtotal;
              
-            jTextPercentPP.setText(Integer.toString(ppp));
+            jTextPercentPP.setText(Double.toString(ppp));
             
         }catch(Exception e){
             jTextPercentPP.setText("Erro");
         } 
          
          
+         
+         //quantidade de mulheres
          try{
+             
+             
             jTextQTDMulheres.setText(cdao.qtdMulheres(municipio));
             
         }catch(Exception e){
@@ -335,12 +384,16 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         }
          
          
+         
+         Double pmulheres = 0.0;
+         //percentagem de mulheres
         try{
-            int vtotal = Integer.parseInt(jTextqtdVereadores.getText());
-            int vmulheres = Integer.parseInt(jTextQTDMulheres.getText());
-            int pmulheres =  (vmulheres*100)/vtotal;
+            Double vtotal = Double.parseDouble(jTextqtdVereadores.getText());
+            Double vmulheres = Double.parseDouble(jTextQTDMulheres.getText());
+            pmulheres =  (vmulheres*100)/vtotal;
+            
         
-        jTextPercentMulheres.setText(Integer.toString(pmulheres));
+        jTextPercentMulheres.setText(Double.toString(pmulheres));
         
          }
          catch(Exception e){
@@ -352,12 +405,11 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         
         PagamentoDAO pdao = new PagamentoDAO();
         
-        Double valorTotal = pdao.repasseTotal(municipio);
-        
-        
+   
         
         try{
-          
+             // pagamentos totais
+            Double valorTotal = pdao.repasseTotal(municipio);
              jTextValorTotal.setText(valorTotal.toString());
         }
         catch(Exception e){
@@ -365,32 +417,136 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
         }
         
         
-        Double vpp = pdao.repassePretosPardos(municipio);
         
         
         
+        //pagamentos a majoritaria
         try{
-            System.out.println(vpp);
+              Double vmajoritaria = pdao.repasseMajoritaria(municipio);
+             jTextValorMajoritaria.setText(vmajoritaria.toString());
+        }
+        catch(Exception e){
+            jTextValorMajoritaria.setText("Erro");
+        }
+        
+        
+        //pagamentos aos vereadores
+          Double vvereadores = pdao.repasseVereradores(municipio);
+        try{
+        
+             jTextValorVereadores.setText(vvereadores.toString());
+        }
+        catch(Exception e){
+            jTextValorVereadores.setText("Erro");
+        }
+        
+        
+        // pagamentos aos municipios
+          Double vpp = pdao.repassePretosPardos(municipio);
+         
+        try{
+            
              jTextRepassePP.setText(vpp.toString());
         }
         catch(Exception e){
             jTextRepassePP.setText("Erro");
         }
         
-        
-        Double pvpp = (vpp * 100) / valorTotal;
-        
-        
-        
+         
+
+        Double pvpp = 0.0;
+        // percentagem repassada aos pretos e pardos
         try{
-            System.out.println(vpp);
+            
+             pvpp = (vpp * 100) / vvereadores;
              jTextPercentRepPP.setText(pvpp.toString());
         }
         catch(Exception e){
             jTextPercentRepPP.setText("Erro");
-        }   
-       
-                                         
+        }  
+        
+        
+        
+        
+        
+        Double vrm = pdao.repasseMulheres(municipio);
+        
+        
+        // valor repassado às mulheres
+        try{
+            
+             jTextRepMulheres.setText(vrm.toString());
+        }
+        catch(Exception e){
+            jTextRepMulheres.setText("Erro");
+        }
+        
+        
+        
+        
+        Double vpm = 0.0;
+        //percentural repassado às mulheres
+        try{
+            
+            vpm = (vrm * 100)/vvereadores;
+           
+             jTextPercentRepMulheres.setText(vpm.toString());
+        }
+        catch(Exception e){
+            jTextPercentRepMulheres.setText("Erro");
+        }
+        
+        
+        try{
+        // valor que falta para pretos e pardos
+        Double valorfaltapp = 0.0;
+        
+        if(pvpp < ppp){
+            Double difp = ppp - pvpp;
+            valorfaltapp = vvereadores * (difp/100);
+        }
+        
+            String valorpp = valorfaltapp.toString();
+            int index1 = valorpp.indexOf(".");
+            int sizep = valorpp.length() - index1;
+            
+   
+             if(sizep < 3){
+                   jTextField1.setText(valorpp.substring(0, index1+2));   
+            }else{
+                  jTextField1.setText(valorpp.substring(0, index1+3));
+            }
+            
+        }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Erro ao calcular o valor que falta para os pretos e pardos");
+        }
+          
+            
+        try{ 
+         //valor que falta para mulheres   
+        Double valorfaltamu = 0.0;
+        
+        if(vpm < pmulheres){
+            Double difm = pmulheres - vpm;
+            valorfaltamu = vvereadores * (difm/100);
+        }
+        
+            String valorm = valorfaltamu.toString();
+            int index2 = valorm.indexOf(".");
+            int size = valorm.length() - index2;
+                   
+            
+            if(size < 3){
+                  jTextField2.setText(valorm.substring(0, index2+2));   
+            }else{
+                 jTextField2.setText(valorm.substring(0, index2+3)); 
+            }
+            
+        }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Erro ao calcular o valor que falta para as mulheres");
+        }
+           
+           
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -441,6 +597,8 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -450,17 +608,19 @@ public class TelaVerificaRepasse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextMunicipio;
     private javax.swing.JTextField jTextPercentMulheres;
     private javax.swing.JTextField jTextPercentPP;
+    private javax.swing.JTextField jTextPercentRepMulheres;
     private javax.swing.JTextField jTextPercentRepPP;
     private javax.swing.JTextField jTextPrefeito;
     private javax.swing.JTextField jTextQTDMulheres;
     private javax.swing.JTextField jTextRepMulheres;
     private javax.swing.JTextField jTextRepassePP;
+    private javax.swing.JTextField jTextValorMajoritaria;
     private javax.swing.JTextField jTextValorTotal;
+    private javax.swing.JTextField jTextValorVereadores;
     private javax.swing.JTextField jTextVice;
     private javax.swing.JTextField jTextqtdPP;
     private javax.swing.JTextField jTextqtdVereadores;

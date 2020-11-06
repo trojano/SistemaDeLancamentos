@@ -129,7 +129,7 @@ public class TelaCadastroCandidato extends javax.swing.JFrame {
 
         jLabel13.setText("Candidatura");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Prefeito", "Vice Prefeito", "Vereador" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Prefeito", "Vice-Prefeito", "Vereador" }));
 
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

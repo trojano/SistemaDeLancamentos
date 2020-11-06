@@ -197,6 +197,53 @@ public class MunicipioDAO {
             
             return muni;
         }
+
+    public void update(Municipio m) {
+        
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        
+        
+                
+        try {
+            stmt = con.prepareStatement("UPDATE municipio"
+                    + " SET cnpj = '"+ m.getCnpj() + "', nro_eleitores = '" +m.getNro_eleitores()+"', responsavel_financeiro = '" +m.getResponsavel()+"', email = '"+m.getEmail()+"', telefone = '"+m.getTelefone()+"', whatsapp = '"+m.getWhatsapp()+"', banco = '"+m.getBanco()+"', agencia = '"+m.getAgencia()+"', conta = '"+m.getConta()+"', banco_mulheres = '"+m.getBancoMulheres()+"', agencia_mulheres = '"+m.getAgenciaMulheres() +"', conta_mulheres = '"+m.getContaMulheres()+"', banco_doacoes = '"+ m.getBancoDoacoes() +"', agencia_doacoes = '" +m.getAgenciaDoacoes()+ "', conta_doacoes = '" + m.getContaDoacoes()
+                    + "' WHERE nome = '" + m.getNome() + "'");
+            
+            
+            
+            
+         /*   stmt.setString(1, m.getNome());
+            stmt.setString(2, m.getCnpj());
+            stmt.setString(3, m.getNro_eleitores());
+            stmt.setString(4, m.getResponsavel());
+            stmt.setString(5, m.getEmail());
+            stmt.setString(6, m.getTelefone());
+            stmt.setString(7, m.getWhatsapp());
+            stmt.setString(8, m.getBanco());
+            stmt.setString(9, m.getAgencia());
+            stmt.setString(10, m.getConta());
+            stmt.setString(11,m.getBancoMulheres());
+            stmt.setString(12,m.getAgenciaMulheres());
+            stmt.setString(13,m.getContaMulheres());
+            stmt.setString(14,m.getBancoDoacoes());
+            stmt.setString(15,m.getAgenciaDoacoes());
+            stmt.setString(16,m.getContaDoacoes());
+            */
+            
+            stmt.executeUpdate();
+           
+                
+                
+        JOptionPane.showMessageDialog(null, "Município atualizado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar município: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        
+        
+    }
             
            
            
