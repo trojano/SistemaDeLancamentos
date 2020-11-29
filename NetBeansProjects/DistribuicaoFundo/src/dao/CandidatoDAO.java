@@ -264,4 +264,115 @@ public class CandidatoDAO {
         
     }
     
+    
+    public Candidato getCandidato(String nome, String municipio){
+       
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Candidato candi = null;
+        
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM candidato WHERE nome = ? AND municipio = ? ");
+            stmt.setString(1, nome);
+            stmt.setString(2, municipio);
+            
+            
+             rs = stmt.executeQuery();
+              
+              
+              
+              while(rs.next()){
+               
+             Candidato candidato = new Candidato(
+             rs.getString("nome"),
+             rs.getString("municipio"),
+             rs.getString("candidatura"),
+             rs.getString("cnpj"),
+             rs.getString("cpf"),
+             rs.getString("telefone"),        
+             rs.getString("email"),
+             rs.getString("whatsapp"),
+             rs.getString("genero"),
+             rs.getString("cor"),
+             rs.getString("dt_nascimento"),
+             rs.getString("orientacao_sexual"),
+             rs.getString("endereco"),
+             rs.getString("banco"),
+             rs.getString("agencia"),
+             rs.getString("conta")                                
+             );
+             
+             candi = candidato;
+             
+             
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+        }
+        
+                return candi;
+    }
+    
+    
+    public String[] getCandidatosPorMunicipio(String municipio){
+        
+        Connection con = ConnectionFactory.getConnection();        
+        PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        
+         
+        String[] candidatos = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT nome FROM candidato WHERE municipio = ? ");
+            stmt.setString(1, municipio);
+              
+            stmt2 = con.prepareStatement("SELECT count(nome) FROM candidato WHERE municipio = ? ");
+            stmt2.setString(1, municipio);
+            
+            
+             rs = stmt.executeQuery();
+             rs2 = stmt2.executeQuery();
+             
+             
+             
+             
+              while(rs2.next()){
+                int index = Integer.parseInt(rs2.getString("count(nome)"));
+                candidatos = new String[index+1];  
+              }
+             
+              
+             candidatos[0]="ESCOLHA UM CANDIDATO";
+              int i = 1;
+              
+              while(rs.next()){
+             
+                  
+            candidatos[i] = rs.getString("nome");
+             
+             i++;
+             
+          }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Erro ao consultar candidato: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt,rs);
+            ConnectionFactory.closeConnection(con, stmt2,rs2);
+        }
+        
+            
+        return candidatos;
+    }
+    
+    
 }

@@ -14,25 +14,29 @@ public class Pagamento {
     
     private String municipio,
                   candidatura,
-                  tpconta,
+                  conta_origem,
                   banco,
                   agencia,
                   conta,
                   cor,
                   nm_candidato;         
     private Double valorRepasse;
-
-    public Pagamento(String municipio, String candidatura, String tpconta, String banco, String agencia, String conta, String cor, String nm_candidato, Double valorRepasse) {
+    private String genero;
+    
+    
+     public Pagamento(String municipio, String candidatura, String conta_origem, String banco, String agencia, String conta, String cor, String nm_candidato, Double valorRepasse, String genero) {
         this.municipio = municipio;
         this.candidatura = candidatura;
-        this.tpconta = tpconta;
+        this.conta_origem = conta_origem;
         this.banco = banco;
         this.agencia = agencia;
         this.conta = conta;
         this.cor = cor;
         this.nm_candidato = nm_candidato;
         this.valorRepasse = valorRepasse;
+        this.genero = genero;
     }
+
 
     public String getMunicipio() {
         return municipio;
@@ -50,12 +54,12 @@ public class Pagamento {
         this.candidatura = candidatura;
     }
 
-    public String getTpconta() {
-        return tpconta;
+    public String getConta_origem() {
+        return conta_origem;
     }
 
-    public void setTpconta(String tpconta) {
-        this.tpconta = tpconta;
+    public void setConta_origem(String conta_origem) {
+        this.conta_origem = conta_origem;
     }
 
     public String getBanco() {
@@ -106,10 +110,20 @@ public class Pagamento {
         this.valorRepasse = valorRepasse;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
     @Override
     public String toString() {
-        return "Pagamento{" + "municipio=" + municipio + ", candidatura=" + candidatura + ", tpconta=" + tpconta + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + ", cor=" + cor + ", nm_candidato=" + nm_candidato + ", valorRepasse=" + valorRepasse + '}';
+        return "Pagamento{" + "municipio=" + municipio + ", candidatura=" + candidatura + ", conta_origem=" + conta_origem + ", banco=" + banco + ", agencia=" + agencia + ", conta=" + conta + ", cor=" + cor + ", nm_candidato=" + nm_candidato + ", valorRepasse=" + valorRepasse + ", genero=" + genero + '}';
     }
+
+   
          
     
     

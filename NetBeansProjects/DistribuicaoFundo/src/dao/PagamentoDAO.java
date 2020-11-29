@@ -25,17 +25,17 @@ public class PagamentoDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO pagamento (municipio, candidatura, tp_conta, banco, agencia, conta, cor, nm_candidato, valor)VALUES(?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO pagamento (municipio, candidatura, conta_origem, banco, agencia, conta, cor, nm_candidato, valor, genero)VALUES(?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, p.getMunicipio());
             stmt.setString(2, p.getCandidatura());
-            stmt.setString(3, p.getTpconta());
+            stmt.setString(3, p.getConta_origem());
             stmt.setString(4, p.getBanco());
             stmt.setString(5, p.getAgencia());
             stmt.setString(6, p.getConta());
             stmt.setString(7, p.getCor());
             stmt.setString(8, p.getNm_candidato());
             stmt.setString(9, p.getValorRepasse().toString());
-            
+            stmt.setString(10, p.getGenero());
             
             stmt.executeUpdate();
             

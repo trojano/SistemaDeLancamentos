@@ -284,7 +284,8 @@ public class TelaPagamento extends javax.swing.JFrame {
                   conta,
                   cor,
                   nm_candidato,
-                  valorRepasse);
+                  valorRepasse,
+                  "genero"  );
         
         PagamentoDAO mdao = new PagamentoDAO();
         mdao.create(pagamento);
